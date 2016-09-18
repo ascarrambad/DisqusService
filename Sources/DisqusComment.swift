@@ -25,6 +25,10 @@
 
 import Foundation
 
+extension Notification.Name {
+    static let DisqusServiceDidPostNewComment = Notification.Name("DisqusServiceDidPostNewComment")
+}
+
 public class DisqusComment: NSObject {
     
     let profileImageURL: URL

@@ -1,37 +1,23 @@
 //
 //  DisqusService.swift
-//  DisqusService
+//  Subspedia
 //
-//  Copyright (c) 2016 Matteo Riva <matteoriva@me.com>
+//  Created by Matteo Riva on 05/09/16.
+//  Copyright © 2016 Matteo Riva. All rights reserved.
 //
-//  Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the "Software"), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
-//
-//  The above copyright notice and this permission notice shall be included in
-//  all copies or substantial portions of the Software.
-//
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-//  THE SOFTWARE.
 
 import Foundation
 import SafariServices
 
+extension Notification.Name {
+    static let DisqusServiceSafariAuthDidClose = Notification.Name("DisqusServiceSafariAuthDidClose")
+}
+
 public class DisqusService: NSObject, SFSafariViewControllerDelegate {
     
-    private typealias conCompletion = (Any?, Error?) -> Void
     typealias disqusAuthCompletion = (Bool) -> Void
     typealias disqusAPICompletion = ([AnyHashable : Any]?,Bool) -> Void
     
-    static let safariAuthDidClose = Notification.Name("SafariAuthDidClose")
     static let shared = DisqusService()
     
     private let authURL = "https://disqus.com/api/oauth/2.0/"
@@ -97,7 +83,7 @@ public class DisqusService: NSObject, SFSafariViewControllerDelegate {
             let safariVC = SFSafariViewController(url: url)
             safariVC.delegate = self
             viewController.present(safariVC, animated: true, completion: nil)
-            NotificationCenter.default.addObserver(forName: DisqusService.safariAuthDidClose,
+            NotificationCenter.default.addObserver(forName: .DisqusServiceSafariAuthDidClose,
                                                    object: nil, queue: .main ) {[unowned self] (notif) in
                                                     safariVC.dismiss(animated: true, completion: nil)
                                                     let tmpCode = (notif.object as! URL).query!.replacingOccurrences(of: "code=", with: "")
@@ -156,14 +142,10 @@ public class DisqusService: NSObject, SFSafariViewControllerDelegate {
         let url = URL(string: baseURL + api + ".json")!
         
         var params = params
+        params["api_key"] = publicKey!
+        params["api_secret"] = secretKey!
         
-        if let token = loggedUser?.accessToken,
-            let publicKey = publicKey,
-            let secretKey = secretKey {
-            
-            params["api_key"] = publicKey
-            params["api_secret"] = secretKey
-            
+        if let token = loggedUser?.accessToken {
             if authRequired {
                 params["access_token"] = token
             }
@@ -182,7 +164,9 @@ public class DisqusService: NSObject, SFSafariViewControllerDelegate {
         
     }
     
-    //MARK: - URLSession methods
+    //MARK: - General
+    
+    private typealias conCompletion = (Any?, Error?) -> Void
     
     private func performGETConnection(url: URL, parameters: [AnyHashable : Any]?, completionHandler: @escaping conCompletion) {
         

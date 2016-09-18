@@ -24,17 +24,15 @@
 
 import Foundation
 
-public class DisqusUser: NSObject, NSCoding {
+class DisqusUser: NSObject, NSCoding {
     
     private(set) var accessToken: String
     private var refreshToken: String
-    internal var isTokenValid = true
-    
     let userID: String
     let username: String
+    var isTokenValid = true
     
-    public init?(json: [AnyHashable : Any]) {
-        
+    init?(json: [AnyHashable : Any]) {
         guard let accessToken = json["access_token"] as? String,
             let refreshToken = json["refresh_token"] as? String,
             let userID = json["user_id"] as? Int,
@@ -47,21 +45,21 @@ public class DisqusUser: NSObject, NSCoding {
         self.username = username
     }
     
-    required public init?(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         accessToken = aDecoder.decodeObject(forKey: "access_token") as! String
         refreshToken = aDecoder.decodeObject(forKey: "refresh_token") as! String
         userID = aDecoder.decodeObject(forKey: "user_id") as! String
         username = aDecoder.decodeObject(forKey: "username") as! String
     }
-
-    public func encode(with aCoder: NSCoder) {
+    
+    func encode(with aCoder: NSCoder) {
         aCoder.encode(accessToken, forKey: "access_token")
         aCoder.encode(refreshToken, forKey: "refresh_token")
         aCoder.encode(userID, forKey: "user_id")
         aCoder.encode(username, forKey: "username")
     }
     
-    internal func refreshToken(publicKey: String, secretKey: String, completionHandler: @escaping (Bool) -> Void) {
+    func refreshToken(publicKey: String, secretKey: String, completionHandler: @escaping (Bool) -> Void) {
         
         let url = URL(string: "https://disqus.com/api/oauth/2.0/access_token/")!
         
@@ -99,7 +97,7 @@ public class DisqusUser: NSObject, NSCoding {
             }
             completionHandler(error == nil)
             self.isTokenValid = error == nil
-        }).resume()
+            }).resume()
         
     }
 }
