@@ -12,6 +12,7 @@
 		AB1445FF1D8ED55900D17366 /* DisqusComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1445FB1D8ED55900D17366 /* DisqusComment.swift */; };
 		AB1446001D8ED55900D17366 /* DisqusService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1445FC1D8ED55900D17366 /* DisqusService.swift */; };
 		AB1446011D8ED55900D17366 /* DisqusUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1445FD1D8ED55900D17366 /* DisqusUser.swift */; };
+		ABE648941D8EDC3600E6D909 /* xcode.png in Resources */ = {isa = PBXBuildFile; fileRef = ABE648931D8EDC3600E6D909 /* xcode.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		AB1445FD1D8ED55900D17366 /* DisqusUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DisqusUser.swift; path = Sources/DisqusUser.swift; sourceTree = "<group>"; };
 		AB1446021D8ED61500D17366 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		AB1446041D8ED7BE00D17366 /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
+		ABE648931D8EDC3600E6D909 /* xcode.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = xcode.png; path = Assets/xcode.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,12 +83,21 @@
 		AB1445F41D8ED46500D17366 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				ABE648951D8EDC4400E6D909 /* Assets */,
 				AB1446021D8ED61500D17366 /* LICENSE */,
 				AB1445F61D8ED49E00D17366 /* README.md */,
 				AB1446041D8ED7BE00D17366 /* CHANGELOG.md */,
 				AB1445F51D8ED49E00D17366 /* DisqusService.podspec */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		ABE648951D8EDC4400E6D909 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				ABE648931D8EDC3600E6D909 /* xcode.png */,
+			);
+			name = Assets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -158,6 +169,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABE648941D8EDC3600E6D909 /* xcode.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
