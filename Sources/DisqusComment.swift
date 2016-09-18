@@ -31,17 +31,17 @@ extension Notification.Name {
 
 public class DisqusComment: NSObject {
     
-    let profileImageURL: URL
-    let authorID: String?
-    let author: String?
-    let message: String
-    let postID: String
-    let isDeleted: Bool
-    let elapsedTime: String?
-    let points: Int
+    public let profileImageURL: URL
+    public let authorID: String?
+    public let author: String?
+    public let message: String
+    public let postID: String
+    public let isDeleted: Bool
+    public let elapsedTime: String?
+    public let points: Int
     
-    let parentID: String?
-    var replies = [DisqusComment]()
+    public let parentID: String?
+    public var replies = [DisqusComment]()
     
     required public init?(disqusData: [AnyHashable : Any]) {
         
@@ -100,7 +100,7 @@ public class DisqusComment: NSObject {
         super.init()
     }
     
-    func attachReplies(_ replies: [[AnyHashable : Any]]) {
+    public func attachReplies(_ replies: [[AnyHashable : Any]]) {
         
         let real = replies.filter { $0["parent"] as! Int == Int(self.postID)! }
         let remaining = replies.filter { $0["parent"] as! Int != Int(self.postID)! }

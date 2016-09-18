@@ -15,10 +15,10 @@ extension Notification.Name {
 
 public class DisqusService: NSObject, SFSafariViewControllerDelegate {
     
-    typealias disqusAuthCompletion = (Bool) -> Void
-    typealias disqusAPICompletion = ([AnyHashable : Any]?,Bool) -> Void
+    public typealias disqusAuthCompletion = (Bool) -> Void
+    public typealias disqusAPICompletion = ([AnyHashable : Any]?,Bool) -> Void
     
-    static let shared = DisqusService()
+    public static let shared = DisqusService()
     
     private let authURL = "https://disqus.com/api/oauth/2.0/"
     private let baseURL = "https://disqus.com/api/3.0/"
@@ -38,24 +38,24 @@ public class DisqusService: NSObject, SFSafariViewControllerDelegate {
         }
     }
     
-    var loggedUserID: String? {
+    public var loggedUserID: String? {
         get { return loggedUser?.userID }
     }
     
-    var isUserAuthenticated: Bool {
+    public var isUserAuthenticated: Bool {
         get { return loggedUser != nil }
     }
     
     //MARK: - Init
     
-    override init() {
+    private override init() {
         if let data = UserDefaults.standard.data(forKey: "disqusLoggedUser") {
             loggedUser = NSKeyedUnarchiver.unarchiveObject(with: data) as? DisqusUser
         }
         super.init()
     }
     
-    func set(publicKey: String, secretKey: String, redirectURI: String) {
+    public func set(publicKey: String, secretKey: String, redirectURI: String) {
         self.publicKey = publicKey
         self.secretKey = secretKey
         self.redirectURI = redirectURI
@@ -69,7 +69,7 @@ public class DisqusService: NSObject, SFSafariViewControllerDelegate {
     
     //MARK: - Auth
     
-    func authenticate(viewController: UIViewController, completionHandler: @escaping disqusAuthCompletion) {
+    public func authenticate(viewController: UIViewController, completionHandler: @escaping disqusAuthCompletion) {
         
         var urlString = "authorize/"
         urlString += "?client_id=\(publicKey!)"
@@ -124,17 +124,17 @@ public class DisqusService: NSObject, SFSafariViewControllerDelegate {
         }
     }
     
-    func logout() {
+    public func logout() {
         loggedUser = nil
     }
     
     //MARK: - Api call
     
-    func performGETRequest(api: String, authRequired: Bool = false, params: [AnyHashable : Any], completionHandler: @escaping disqusAPICompletion) {
+    public func performGETRequest(api: String, authRequired: Bool = false, params: [AnyHashable : Any], completionHandler: @escaping disqusAPICompletion) {
         performRequest(api: api, authRequired: authRequired, params: params, method: "GET", completionHandler: completionHandler)
     }
     
-    func performPOSTRequest(api: String, authRequired: Bool = false, params: [AnyHashable : Any], completionHandler: @escaping disqusAPICompletion) {
+    public func performPOSTRequest(api: String, authRequired: Bool = false, params: [AnyHashable : Any], completionHandler: @escaping disqusAPICompletion) {
         performRequest(api: api, authRequired: authRequired, params: params, method: "POST", completionHandler: completionHandler)
     }
     
