@@ -12,7 +12,6 @@
 		AB1445FF1D8ED55900D17366 /* DisqusComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1445FB1D8ED55900D17366 /* DisqusComment.swift */; };
 		AB1446001D8ED55900D17366 /* DisqusService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1445FC1D8ED55900D17366 /* DisqusService.swift */; };
 		AB1446011D8ED55900D17366 /* DisqusUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1445FD1D8ED55900D17366 /* DisqusUser.swift */; };
-		ABE648941D8EDC3600E6D909 /* xcode.png in Resources */ = {isa = PBXBuildFile; fileRef = ABE648931D8EDC3600E6D909 /* xcode.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -169,7 +168,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ABE648941D8EDC3600E6D909 /* xcode.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

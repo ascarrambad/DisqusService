@@ -4,10 +4,9 @@ Wrapper for Disqus APIs written in Swift.
 This open-source library allows you to integrate it into your iOS apps.
 Learn more about [Disqus APIs](https://disqus.com/api/docs/).
 
-[![CI Status](http://img.shields.io/travis/Matteo Riva/DisqusService.svg?style=flat)](https://travis-ci.org/Matteo Riva/DisqusService)
-[![Version](https://img.shields.io/cocoapods/v/DisqusService.svg?style=flat)](http://cocoapods.org/pods/DisqusService)
-[![License](https://img.shields.io/cocoapods/l/DisqusService.svg?style=flat)](http://cocoapods.org/pods/DisqusService)
-[![Platform](https://img.shields.io/cocoapods/p/DisqusService.svg?style=flat)](http://cocoapods.org/pods/DisqusService)
+[![Language Swift 3.0](https://img.shields.io/badge/Language-Swift%203.0-green.svg?style=flat)](https://swift.org)
+[![Platforms iOS](https://img.shields.io/badge/Platforms-iOS-lightgray.svg?style=flat)](http://www.apple.com/ios)
+[![License MIT](https://img.shields.io/badge/License-MIT-lightgrey.svg?style=flat)](https://github.com/ascarrambad/DisqusService/master/LICENSE)
 
 ## Installation
 
@@ -15,7 +14,7 @@ DisqusService is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod "DisqusService"
+pod 'DisqusService'
 ```
 ## Usage
 
@@ -23,20 +22,19 @@ Add the following code in your `AppDelegate` class
 
 ```swift
 func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
-
-DisqusService.shared.set(publicKey: "<your-public-key>",
-secretKey: "<your-secret-key>",
-redirectURI: "<your-redirect-uri>")
+    DisqusService.shared.set(publicKey: "<your-public-key>",
+    secretKey: "<your-secret-key>",
+    redirectURI: "<your-redirect-uri>")
 }
 
 @available(iOS 9.0, *)
 func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
-if let sourceApplication = options[.sourceApplication] as? String {
-if sourceApplication == "com.apple.SafariViewService" {
-NotificationCenter.default.post(name: DisqusService.safariAuthDidClose, object: url)
-}
-}
-return true
+    if let sourceApplication = options[.sourceApplication] as? String {
+        if sourceApplication == "com.apple.SafariViewService" {
+            NotificationCenter.default.post(name: DisqusService.safariAuthDidClose, object: url)
+        }
+    }
+    return true
 }
 ```
 
@@ -51,11 +49,11 @@ To do so in Project Settings → Info: scroll down to **URL Types** and add an e
 Authenticating/Deauthenticating a user is very simple:
 ```swift
 DisqusService.shared.authenticate(viewController: yourVC) { (success) in
-if success {
-
-} else {
-
-}
+    if success {
+        
+    } else {
+        
+    }
 }
 
 ////////////////
