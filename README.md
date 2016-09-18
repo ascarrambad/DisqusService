@@ -4,9 +4,10 @@ Wrapper for Disqus APIs written in Swift.
 This open-source library allows you to integrate it into your iOS apps.
 Learn more about [Disqus APIs](https://disqus.com/api/docs/).
 
+[![Version](https://img.shields.io/cocoapods/v/DisqusService.svg?style=flat)](http://cocoapods.org/pods/DisqusService)
 [![Language Swift 3.0](https://img.shields.io/badge/Language-Swift%203.0-green.svg?style=flat)](https://swift.org)
-[![Platforms iOS](https://img.shields.io/badge/Platforms-iOS-lightgray.svg?style=flat)](http://www.apple.com/ios)
-[![License MIT](https://img.shields.io/badge/License-MIT-lightgrey.svg?style=flat)](https://github.com/ascarrambad/DisqusService/master/LICENSE)
+[![Platforms iOS](https://img.shields.io/cocoapods/p/DisqusService.svg?style=flat)](http://www.apple.com/ios)
+[![License MIT](https://img.shields.io/cocoapods/l/DisqusService.svg?style=flat)](https://github.com/ascarrambad/DisqusService/master/LICENSE)
 
 ## Installation
 
