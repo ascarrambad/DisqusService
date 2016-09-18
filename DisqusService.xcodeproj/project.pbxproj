@@ -16,8 +16,8 @@
 
 /* Begin PBXFileReference section */
 		AB1445E81D8ED40100D17366 /* DisqusService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DisqusService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		AB1445EB1D8ED40100D17366 /* DisqusService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DisqusService.h; path = ../Sources/DisqusService.h; sourceTree = "<group>"; };
-		AB1445EC1D8ED40100D17366 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Sources/Info.plist; sourceTree = "<group>"; };
+		AB1445EB1D8ED40100D17366 /* DisqusService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DisqusService.h; path = Sources/DisqusService.h; sourceTree = "<group>"; };
+		AB1445EC1D8ED40100D17366 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = Info.plist; path = Sources/Info.plist; sourceTree = "<group>"; };
 		AB1445F51D8ED49E00D17366 /* DisqusService.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = DisqusService.podspec; sourceTree = "<group>"; };
 		AB1445F61D8ED49E00D17366 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		AB1445FA1D8ED55900D17366 /* DisqusAuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DisqusAuthViewController.swift; path = Sources/DisqusAuthViewController.swift; sourceTree = "<group>"; };
@@ -336,6 +336,7 @@
 				AB1445F21D8ED40100D17366 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
