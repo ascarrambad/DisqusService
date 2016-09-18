@@ -24,7 +24,7 @@
 
 import Foundation
 
-class DisqusUser: NSObject, NSCoding {
+internal class DisqusUser: NSObject, NSCoding {
     
     private(set) var accessToken: String
     private var refreshToken: String

@@ -23,15 +23,15 @@ Add the following code in your `AppDelegate` class
 ```swift
 func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
     DisqusService.shared.set(publicKey: "<your-public-key>",
-    secretKey: "<your-secret-key>",
-    redirectURI: "<your-redirect-uri>")
+                             secretKey: "<your-secret-key>",
+                             redirectURI: "<your-redirect-uri>")
 }
 
 @available(iOS 9.0, *)
 func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
     if let sourceApplication = options[.sourceApplication] as? String {
         if sourceApplication == "com.apple.SafariViewService" {
-            NotificationCenter.default.post(name: DisqusService.safariAuthDidClose, object: url)
+            NotificationCenter.default.post(name: DisqusServiceSafariAuthDidClose, object: url)
         }
     }
     return true
@@ -61,10 +61,32 @@ DisqusService.shared.authenticate(viewController: yourVC) { (success) in
 DisqusService.shared.logout()
 ```
 
+This library also includes a convenient class called DisqusComment to better handle received comments from a thread.
+Here's an example:
+
+```swift
+
+let params = ["thread" : <your-thread-id>, "order" : "asc"]
+let posts: [DisqusComment] = []
+
+DisqusService.shared.performGETRequest(api: "posts/list", authRequired: false, params: params) { (data, success) -> Void in
+    if success {
+        let posts = data?["response"] as! [[AnyHashable : Any]]
+
+        for postJSON in posts {
+            if let post = DisqusComment(disqusData: postJSON) {
+                posts.append(post)
+            }
+        }
+    }
+}
+```
+
 Please note that certain APIs require authentication and MUST be specified.
 API usage example:
 
 ```swift
+
 let paramsDetails = ["forum" : "<your-forum>", "thread" : "<your-thread-id>"]
 DisqusService.shared.performGETRequest(api: "threads/details", authRequired: false, params: paramsDetails) { (data, success) in
 
