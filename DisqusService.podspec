@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name = 'DisqusService'
-    s.version = '1.0.0'
+    s.version = '1.0.1'
     s.summary = 'Wrapper for Disqus APIs written in Swift'
 
     s.homepage = 'https://github.com/ascarrambad/DisqusService'
