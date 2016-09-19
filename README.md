@@ -32,7 +32,7 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
 func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
     if let sourceApplication = options[.sourceApplication] as? String {
         if sourceApplication == "com.apple.SafariViewService" {
-            NotificationCenter.default.post(name: DisqusServiceSafariAuthDidClose, object: url)
+            NotificationCenter.default.post(name: .DisqusServiceSafariAuthDidClose, object: url)
         }
     }
     return true
@@ -67,7 +67,7 @@ Here's an example:
 
 ```swift
 
-let params = ["thread" : <your-thread-id>, "order" : "asc"]
+let params = ["thread" : "<your-thread-id>", "order" : "asc"]
 let posts: [DisqusComment] = []
 
 DisqusService.shared.performGETRequest(api: "posts/list", authRequired: false, params: params) { (data, success) -> Void in
