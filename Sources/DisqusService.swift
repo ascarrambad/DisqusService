@@ -9,7 +9,7 @@
 import Foundation
 import SafariServices
 
-extension Notification.Name {
+public extension Notification.Name {
     static let DisqusServiceSafariAuthDidClose = Notification.Name("DisqusServiceSafariAuthDidClose")
 }
 
