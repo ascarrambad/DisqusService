@@ -176,7 +176,7 @@ public class DisqusService: NSObject, SFSafariViewControllerDelegate {
             for (key,value) in parameters {
                 paramString += "\(key)=\(value)&"
             }
-            paramString.characters.removeLast()
+            paramString.removeLast()
         }
         let url = URL(string: url.absoluteString + paramString)!
         
@@ -201,7 +201,7 @@ public class DisqusService: NSObject, SFSafariViewControllerDelegate {
                 for (key,value) in parameters {
                     paramString += "\(key)=\(value)&"
                 }
-                paramString.characters.removeLast()
+                paramString.removeLast()
                 
                 request.httpBody = paramString.data(using: String.Encoding.utf8)!
             }
