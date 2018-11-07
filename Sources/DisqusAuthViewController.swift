@@ -55,7 +55,7 @@ internal class DisqusAuthViewController: UIViewController, WKNavigationDelegate 
         webView.load(URLRequest(url: url!))
     }
 
-    func dismissAction() {
+    @objc func dismissAction() {
         dismiss(animated: true, completion: nil)
     }
     

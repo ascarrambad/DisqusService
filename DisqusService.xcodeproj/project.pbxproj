@@ -133,6 +133,7 @@
 				TargetAttributes = {
 					AB1445E71D8ED40100D17366 = {
 						CreatedOnToolsVersion = 8.0;
+						LastSwiftMigration = 1000;
 						ProvisioningStyle = Manual;
 					};
 				};
@@ -294,7 +295,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = it.teoriva.DisqusService;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -314,7 +316,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = it.teoriva.DisqusService;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
