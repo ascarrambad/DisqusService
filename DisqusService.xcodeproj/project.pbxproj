@@ -16,8 +16,8 @@
 
 /* Begin PBXFileReference section */
 		AB1445E81D8ED40100D17366 /* DisqusService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DisqusService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		AB1445EB1D8ED40100D17366 /* DisqusService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DisqusService.h; path = Sources/DisqusService.h; sourceTree = "<group>"; };
-		AB1445EC1D8ED40100D17366 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = Info.plist; path = Sources/Info.plist; sourceTree = "<group>"; };
+		AB1445EB1D8ED40100D17366 /* DisqusService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DisqusService.h; sourceTree = "<group>"; };
+		AB1445EC1D8ED40100D17366 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AB1445F51D8ED49E00D17366 /* DisqusService.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = DisqusService.podspec; sourceTree = "<group>"; };
 		AB1445F61D8ED49E00D17366 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		AB1445FA1D8ED55900D17366 /* DisqusAuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DisqusAuthViewController.swift; path = Sources/DisqusAuthViewController.swift; sourceTree = "<group>"; };
@@ -44,6 +44,8 @@
 			isa = PBXGroup;
 			children = (
 				AB1445F31D8ED45700D17366 /* Sources */,
+				AB1445EB1D8ED40100D17366 /* DisqusService.h */,
+				AB1445EC1D8ED40100D17366 /* Info.plist */,
 				AB1445E91D8ED40100D17366 /* Products */,
 				AB1445F41D8ED46500D17366 /* Supporting Files */,
 			);
@@ -57,16 +59,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		AB1445EA1D8ED40100D17366 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				AB1445EB1D8ED40100D17366 /* DisqusService.h */,
-				AB1445EC1D8ED40100D17366 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			path = DisqusService;
-			sourceTree = "<group>";
-		};
 		AB1445F31D8ED45700D17366 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
@@ -74,7 +66,6 @@
 				AB1445FB1D8ED55900D17366 /* DisqusComment.swift */,
 				AB1445FC1D8ED55900D17366 /* DisqusService.swift */,
 				AB1445FD1D8ED55900D17366 /* DisqusUser.swift */,
-				AB1445EA1D8ED40100D17366 /* Supporting Files */,
 			);
 			name = Sources;
 			sourceTree = "<group>";
@@ -297,7 +288,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "$(SRCROOT)/Sources/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = it.teoriva.DisqusService;
@@ -317,7 +308,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "$(SRCROOT)/Sources/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = it.teoriva.DisqusService;
