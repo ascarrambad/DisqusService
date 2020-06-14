@@ -101,7 +101,7 @@ DisqusService.shared.performPOSTRequest(api: "posts/vote", authRequired: true, p
 
 ## Author
 
-Matteo Riva, matteoriva@me.com
+Matteo Riva, matteo.riva@outlook.com
 
 ## License
 
